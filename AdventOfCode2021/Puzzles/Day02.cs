@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace AdventOfCode2021.Puzzles
 {
@@ -10,8 +11,40 @@ namespace AdventOfCode2021.Puzzles
 
         protected override void Solve(IEnumerable<string> input)
         {
-            // TODO
-            throw new NotImplementedException();
+            var instructions = input.Select(x =>
+            {
+                var res = x.Split(' ');
+                return new
+                {
+                    direction = res[0],
+                    x = int.Parse(res[1])
+                };
+            });
+            int depth = 0;
+            int depth2 = 0;
+            int horizontal = 0;
+            int aim = 0;
+            foreach (var instruction in instructions)
+            {
+                switch (instruction.direction)
+                {
+                    case "forward":
+                        horizontal+= instruction.x;
+                        depth2 += aim * instruction.x;
+                        break;
+                    case "down":
+                        aim+= instruction.x;
+                        depth += instruction.x;
+                        break;
+                    case "up":
+                        aim -= instruction.x;
+                        depth -= instruction.x;
+                        break;
+                }
+            }
+
+            PartOne = (depth * horizontal).ToString();
+            PartTwo = (depth2 * horizontal).ToString();
         }
     }
 }
