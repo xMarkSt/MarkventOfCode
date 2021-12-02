@@ -21,7 +21,6 @@ namespace AdventOfCode2021.Puzzles
                 };
             });
             int depth = 0;
-            int depth2 = 0;
             int horizontal = 0;
             int aim = 0;
             foreach (var instruction in instructions)
@@ -30,21 +29,19 @@ namespace AdventOfCode2021.Puzzles
                 {
                     case "forward":
                         horizontal+= instruction.x;
-                        depth2 += aim * instruction.x;
+                        depth += aim * instruction.x;
                         break;
                     case "down":
-                        aim+= instruction.x;
-                        depth += instruction.x;
+                        aim += instruction.x;
                         break;
                     case "up":
                         aim -= instruction.x;
-                        depth -= instruction.x;
                         break;
                 }
             }
 
-            PartOne = (depth * horizontal).ToString();
-            PartTwo = (depth2 * horizontal).ToString();
+            PartOne = (aim * horizontal).ToString();
+            PartTwo = (depth * horizontal).ToString();
         }
     }
 }
