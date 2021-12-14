@@ -6,7 +6,6 @@ namespace AdventOfCode2021.Puzzles
 {
     public class PuzzleManager
     {
-        
         public async Task SolvePuzzle(int year, int day)
         {
             AocPuzzle puzzle = FindByYearAndDay(year, day);
