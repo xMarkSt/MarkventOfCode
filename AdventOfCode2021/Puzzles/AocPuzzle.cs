@@ -11,8 +11,8 @@ namespace AdventOfCode2021.Puzzles
 {
     public abstract class AocPuzzle
     {
-        public string PartOne { get; set; }
-        public string PartTwo { get; set; }
+        public object PartOne { get; set; }
+        public object PartTwo { get; set; }
         public abstract int Year { get; }
         public abstract int Day { get; }
         

@@ -24,8 +24,8 @@ namespace AdventOfCode2021.Puzzles
                 }
             }
 
-            PartOne = count.ToString();
-            PartTwo = threeMeasure.ToString();
+            PartOne = count;
+            PartTwo = threeMeasure;
         }
     }
 }
