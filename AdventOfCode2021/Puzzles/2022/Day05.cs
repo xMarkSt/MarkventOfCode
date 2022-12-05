@@ -45,7 +45,7 @@ namespace AdventOfCode2021.Puzzles._2022
 
             foreach (string instruction in instructions)
             {
-                (string amount, string from, string to, _) = InputUtils.RegexGroupCapture(regex, instruction);
+                (string amount, string from, string to, _) = StringUtils.RegexGroupCapture(regex, instruction);
                 int fromIndex = int.Parse(from) - 1;
                 int toIndex = int.Parse(to) - 1;
                 

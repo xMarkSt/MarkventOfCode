@@ -17,7 +17,7 @@ namespace AdventOfCode2021.Puzzles
             var regex = new Regex(@"(\w+) x=(.*)\.\.(.*),y=(.*)\.\.(.*),z=(.*)\.\.(.*)");
             foreach (string line in input)
             {
-                var (type, x1, x2, y1, y2, z1, z2, _) = InputUtils.RegexGroupCapture(regex, line);
+                var (type, x1, x2, y1, y2, z1, z2, _) = StringUtils.RegexGroupCapture(regex, line);
                 for (int x = int.Parse(x1); x <= int.Parse(x2); x++)
                 for (int y = int.Parse(y1); y <= int.Parse(y2); y++)
                 for (int z = int.Parse(z1); z <= int.Parse(z2); z++)
