@@ -13,4 +13,21 @@ public static class StringUtils
         return match.Groups.Values.Skip(1)
             .Select(groupsValue => groupsValue.Value).ToList();
     }
+
+    /// <summary>
+    /// Returns true if string consists of unique characters
+    /// </summary>
+    /// <param name="str"></param>
+    /// <returns></returns>
+    public static bool IsUnique(this string str)
+    {
+        var chars = new HashSet<char>();
+        foreach (char c in str)
+        {
+            if (chars.Contains(c)) return false;
+            chars.Add(c);
+        }
+
+        return true;
+    }
 }
