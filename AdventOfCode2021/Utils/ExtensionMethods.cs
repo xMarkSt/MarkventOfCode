@@ -21,5 +21,22 @@ namespace AdventOfCode2021.Utils
             return str.Remove(index, Math.Min(length, str.Length - index))
                 .Insert(index, replace);
         }
+
+        /// <summary>
+        /// Returns true if string consists of unique characters
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static bool IsUnique(this string str)
+        {
+            var chars = new HashSet<char>();
+            foreach (char c in str)
+            {
+                if (chars.Contains(c)) return false;
+                chars.Add(c);
+            }
+
+            return true;
+        }
     }
 }
