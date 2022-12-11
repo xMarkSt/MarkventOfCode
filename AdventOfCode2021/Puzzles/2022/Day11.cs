@@ -13,6 +13,7 @@ public class Day11 : AocPuzzle
     private List<Monkey> _monkeys;
     
     private static long _lcm;
+    private static bool _isPart1 = true;
 
     protected override void Solve(IEnumerable<string> input)
     {
@@ -39,21 +40,27 @@ public class Day11 : AocPuzzle
             _monkeys.Add(newMonke);
         }
 
-        for (int i = 0; i < 10000; i++)
+        PartOne = SolvePart(new List<Monkey>(_monkeys), 20);
+        _isPart1 = false;
+        PartTwo = SolvePart(new List<Monkey>(_monkeys), 10000);
+    }
+
+    private long SolvePart(List<Monkey> monkeys, int rounds)
+    {
+        for (int i = 0; i < rounds; i++)
         {
-            foreach (Monkey monkey in _monkeys)
+            foreach (Monkey monkey in monkeys)
             {
                 monkey.TakeTurn();
             }
         }
 
-        // Round finished
-        long monkeyBusiness = _monkeys
+        // Round finished, monkey business
+        return monkeys
             .OrderByDescending(m => m.InspectionsCount)
             .Select(m => m.InspectionsCount)
             .Take(2)
             .Aggregate((long)1, (acc, val) => acc * val);
-        PartTwo = monkeyBusiness;
     }
 
     private class Monkey
@@ -77,7 +84,8 @@ public class Day11 : AocPuzzle
             while (Items.Count != 0)
             {
                 long worryLevel = DoOperation(Items.Dequeue());
-                worryLevel %= _lcm;
+                if (_isPart1) worryLevel /= 3;
+                else worryLevel %= _lcm;
                 int index = worryLevel % DivisibleBy == 0 ? MonkeyThrowIndexTrue : MonkeyThrowIndexFalse;
                 _monkeys[index].Items.Enqueue(worryLevel);
                 InspectionsCount++;
