@@ -38,7 +38,6 @@ namespace AdventOfCode2021.Datastructures
             return newVertex;
         }
 
-
         /// <summary>
         ///    Gets a vertex from the graph by name. If no such vertex exists,
         ///    a new vertex will be created and returned.
@@ -145,10 +144,6 @@ namespace AdventOfCode2021.Datastructures
                 }
             }
         }
-
-        //----------------------------------------------------------------------
-        // ToString that has to be implemented for exam
-        //----------------------------------------------------------------------
 
         /// <summary>
         ///    Converts this instance of Graph to its string representation.

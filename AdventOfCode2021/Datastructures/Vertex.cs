@@ -9,7 +9,6 @@ namespace AdventOfCode2021.Datastructures
     public class Vertex : IComparable<Vertex>
     {
         public string name;
-        public Vector2 Pos { get; set; }
         public LinkedList<Edge> adj;
         public double distance;
         public Vertex prev;
