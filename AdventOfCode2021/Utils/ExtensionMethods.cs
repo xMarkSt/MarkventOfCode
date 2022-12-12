@@ -2,12 +2,18 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Numerics;
 
 namespace AdventOfCode2021.Utils
 {
     public static class ExtensionMethods
     {
         public static string ToSimpleString(this Point point)
+        {
+            return $"{point.X},{point.Y}";
+        }
+        
+        public static string ToSimpleString(this Vector2 point)
         {
             return $"{point.X},{point.Y}";
         }

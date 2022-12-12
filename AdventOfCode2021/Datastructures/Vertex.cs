@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
+using AdventOfCode2021.Utils;
 
 namespace AdventOfCode2021.Datastructures
 {
     public class Vertex : IComparable<Vertex>
     {
         public string name;
+        public Vector2 Pos { get; set; }
         public LinkedList<Edge> adj;
         public double distance;
         public Vertex prev;
@@ -22,7 +25,7 @@ namespace AdventOfCode2021.Datastructures
             distance = Graph.INFINITY;
             adj = new LinkedList<Edge>();
         }
-        
+
         public string GetName()
         {
             return name;

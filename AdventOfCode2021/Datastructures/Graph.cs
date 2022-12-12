@@ -30,11 +30,12 @@ namespace AdventOfCode2021.Datastructures
         ///    already exists, no action is performed.
         /// </summary>
         /// <param name="name">The name of the new vertex</param>
-        public void AddVertex(string name)
+        public Vertex AddVertex(string name)
         {
-            if (vertexMap.ContainsKey(name)) return;
-            Vertex newVertex = new Vertex(name);
+            if (vertexMap.ContainsKey(name)) return vertexMap[name];
+            var newVertex = new Vertex(name);
             vertexMap.Add(name, newVertex);
+            return newVertex;
         }
 
 
