@@ -68,7 +68,7 @@ public class Day12 : AocPuzzle
 
         return res;
     }
-    private void FloodFill(Vertex current, Vector2Int currentPos,  char currC)
+    private void FloodFill(Vertex current, Vector2Int currentPos, char currC)
     {
         var directions = new List<Vector2Int>
         {
