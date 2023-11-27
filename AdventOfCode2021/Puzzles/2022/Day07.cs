@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using AD;
 using AdventOfCode2021.Utils;
 
 namespace AdventOfCode2021.Puzzles._2022;
